@@ -1,0 +1,19 @@
+---
+
+- hosts: all
+  become: true # Sudo
+  tasks:
+
+  - name: Update Repository Index
+    apt:
+      update_cache: yes
+
+  - name: install apache2 package # Just a discription
+    apt:
+      name: apache2
+      state: latest
+  
+  - name: Add php support for apache
+    apt:
+      name: libapache2-mod-php
+      state: latest
